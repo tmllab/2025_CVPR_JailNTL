@@ -1,0 +1,101 @@
+#########################################
+# basic parameters
+#########################################
+device:
+  value: cuda:0
+task_name:
+  value: tNTL
+  # option: tNTL, tCUTI
+domain_src:
+  value: cifar
+domain_tgt:
+  value: stl
+image_size:
+  value: 64
+num_classes:
+  value: 10
+seed:
+  value: 2024
+data_transform:
+  value: ntl
+num_workers:
+  value: 16
+
+#########################################
+# parameters for training SL/NTL models
+#########################################
+NTL_network:
+  value: vgg13
+NTL_pretrain:
+  value: True
+NTL_save_path:
+  value: auto
+NTL_train:
+  value: True
+
+#########################################
+# parameters for JailNTL
+#########################################
+jailntl_shot_num:
+  value: 80
+  # helper: number of total samples for jailntl training
+class_balance_weight:
+  value: 0.0001
+  # value: 0.005  # for tCUTI task
+confidence_weight:
+  value: 0.0001
+  # value: 0.0001   # for tCUTI task
+grad_epsilon:
+  value: 0.0001
+  # value: 0.000001  # for tCUTI task
+  # helper: gradient epsilon for finit difference when computing model-guided loss
+GAN_structure:
+  value: [True, True]
+  # helper: for ablation study to enable/disable GAN with feedback (Eq. 3) and bidirectional GAN (Eq. 7)
+  # [use_feedback, use_bidirectional]
+
+#########################################
+# Parameters for JailNTL Training
+#########################################
+load_size:
+  value: 286
+crop_size:
+  value: 256
+jailntl_num_threads:
+  value: 4
+jailntl_batch_size:
+  value: 5
+n_epochs:
+  value: 100
+n_epochs_decay:
+  value: 100
+print_iter_freq:
+  value: 100
+save_epoch_freq:
+  value: 100
+continue_train:
+  value: False
+  # helper: load the latest model for continue training if set to True
+beta1:
+  value: 0.5
+  # helper: momentum term of adam
+lr:
+  value: 0.0002
+  # helper: initial learning rate for adam
+lr_policy:
+  value: linear
+  # option: linear | step | plateau | cosine
+lr_decay_iters:
+  value: 50
+  # helper: multiply by a gamma every lr_decay_iters iterations
+
+#########################################
+# parameters for JailNTL Generation
+#########################################
+epoch:
+  value: 'latest'
+  # helper: which epoch to load? set to 'latest' to use the latest cached model
+checkpoints_dir:
+  value: './saved_models/disguising_networks'
+num_test:
+  value: 1000

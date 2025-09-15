@@ -1,0 +1,67 @@
+#########################################
+# basic parameters
+#########################################
+device:
+  value: cuda:0
+task_name:
+  value: tCUTI
+  # option: tNTL, tCUTI
+domain_src:
+  value: stl
+domain_tgt:
+  value: cifar
+patch_value:
+  value: default
+image_size:
+  value: 64
+num_classes:
+  value: 10
+
+seed:
+  value: 2023
+batch_size:
+  value: 32
+num_workers:
+  value: 16
+
+data_pre_split:
+  value: True
+data_transform:
+  value: ntl
+
+#########################################
+# parameters for training SL/NTL models
+#########################################
+NTL_network:
+  value: vgg13
+  # option: vgg13, vgg13bn, vgg19, vgg19bn, resnet34cmi, wide_resnet50_2cmi
+NTL_pretrain:
+  value: True
+NTL_save_path:
+  value: auto
+NTL_train:
+  value: True
+NTL_save:
+  value: True
+NTL_epochs:
+  value: 30
+NTL_lr:
+  value: 0.0001
+NTL_optimizer:
+  value: adam
+  # option: sgd, adam
+NTL_momentum:
+  value: 0.9
+NTL_weight_decay:
+  value: 0.0001
+
+#########################################
+# additional parameters for NTL / CUTI
+#########################################
+NTL_alpha:
+  value: 0.1
+NTL_beta:
+  value: 0.1
+CUTI_alpha:
+  value: 0.1
+
