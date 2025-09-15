@@ -36,7 +36,7 @@ python data_split.py
 ```
 This command will create and split datasets to the `./data_presplit` folder.
 
-✨ We will provide pre-split demo datasets in **Google Drive** (coming soon). You can download them and save to `./data_presplit/`.
+✨ We will provide pre-split demo datasets in [Google Drive](https://drive.google.com/drive/folders/1C6vlucV4goVbroFNqBm6Mg8Xw7z3OgS4?usp=drive_link). You can download them and save to `./data_presplit/`.
 
 
 #### 3. Training NTL
@@ -45,7 +45,7 @@ You can pre-train NTL models from scratch by running:
 ```
 python src/ntl_pretrain.py -s <authorized-domain> -t <unauthorized-domain>
 ```
-✨ We also provide model files in **Google Drive** (coming soon) which were pretrained on our demo pre-split datasets. You can save them to `./saved_models/`.
+✨ We also provide model files in [Google Drive](https://drive.google.com/drive/folders/1pDrar1Hqwo9ksX6ElszZ4mK_waOhLzZn?usp=drive_link) which were pretrained on our demo pre-split datasets. You can save them to `./saved_models/`.
 
 💡 We use [`wandb`](https://wandb.ai/site) to organize experiments and record resutls. Config files for training NTL are stored in `./config/pretrain/<domain-pair>.yml`.**Important Args** are illustrated as belows:
 - `task_name`: {`tNTL`/`tCUTI`} for pretraining by using different NTL methods on the source & target domains.
